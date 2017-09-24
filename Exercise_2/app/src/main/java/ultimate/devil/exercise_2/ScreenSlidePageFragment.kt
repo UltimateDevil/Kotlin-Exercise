@@ -1,10 +1,7 @@
 package ultimate.devil.exercise_2
 
-import android.graphics.Color
 import android.support.v4.app.Fragment
-import android.support.v4.view.ViewCompat.setScaleY
 import android.os.Bundle
-import android.graphics.Color.parseColor
 import android.widget.TextView
 import android.view.ViewGroup
 import android.view.LayoutInflater
@@ -16,35 +13,23 @@ import android.view.View
  */
 class ScreenSlidePageFragment : Fragment() {
 
-    var rootView: View?=null
+    var rootView: View? = null
 
 
-    override fun onCreateView(inflater: LayoutInflater?,  container: ViewGroup?,  savedInstanceState: Bundle?): View? {
-        rootView = inflater!!.inflate(R.layout.fragment_screen_slide_page, container, false)
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        rootView = inflater?.inflate(R.layout.fragment_screen_slide_page, container, false)
         return rootView
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val tv_fragTitle = view.findViewById(R.id.tv_fragTitle) as TextView
-        val tv_fragTitle = view!!.findViewById<TextView>(R.id.tv_fragTitle)
+        val tv_fragTitle = view?.findViewById<TextView>(R.id.tv_fragTitle)
 
         val b = arguments
         if (b != null) {
-            tv_fragTitle.text = b.getString("text")
-    }
-   /* fun onViewCreated(view: View,  savedInstanceState: Bundle) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val tv_fragTitle = view.findViewById(R.id.tv_fragTitle) as TextView
-
-        tv_fragTitle.setBackgroundColor(Color.parseColor(getRandomColor()))
-
-        val b = arguments
-        if (b != null) {
-            tv_fragTitle.text = b.getString("text")
-        }*/
+            tv_fragTitle?.text = b.getString("text")
+        }
     }
 
     /**
@@ -55,12 +40,12 @@ class ScreenSlidePageFragment : Fragment() {
 
 
     fun scaleImage(scaleX: Float) {
-        rootView!!.setScaleY(scaleX)
-        rootView!!.invalidate()
+        rootView?.setScaleY(scaleX)
+        rootView?.invalidate()
     }
 
     fun removeSpacing() {
-        rootView!!.setPadding(0, 0, 0, 0)
-        rootView!!.invalidate()
+        rootView?.setPadding(0, 0, 0, 0)
+        rootView?.invalidate()
     }
 }
